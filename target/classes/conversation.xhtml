@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Maratona JSF - DevDojo</title>
+</h:head>
+<h:body>
+	<f:metadata>
+		<f:viewAction action="#{testeConversationBean.init()}" />
+	</f:metadata>
+	<h:form>
+		<h:outputText value="#{testeApplicationBean.categoriaList}" />
+		<br />
+		<h:outputText value="#{testeConversationBean.personagemSelecionado}" />
+		<br />
+		<h:commandButton
+			actionListener="#{testeConversationBean.selesionarPersonagem()}"
+			value="Selecionar Personagem" />
+		<br />
+
+		<h:commandButton
+			actionListener="#{testeConversationBean.selesionarPersonagem()}"
+			value="Selecionar Personagem foward" action="conversation2" />
+		<br />
+		
+		<h:commandButton
+			actionListener="#{testeConversationBean.selesionarPersonagem()}"
+			value="Selecionar Personagem redirect" action="conversation2?faces-redirect=true" />
+		<br />
+
+		<h:link outcome="conversation2" value="vai para conversation2" >
+			<f:viewParam name="cid" value="#{testeConversationBean.endConvesation()}"></f:viewParam>
+		</h:link>
+		<br />
+		<h:commandButton
+			actionListener="#{testeConversationBean.endConvesation()}"
+			value="Finalizar conversation Scoped" />
+		
+	</h:form>
+</h:body>
+</html>

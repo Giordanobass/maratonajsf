@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Maratona JSF - DevDojo</title>
+</h:head>
+<h:body>
+	<p:importEnum type="br.com.devedojo.maratonajsf.model.enums.Turno"
+		var="Turno" allSuffix="ALL_ENUM_VALUES"></p:importEnum>
+	<h:outputLabel value="Hello Word" />
+	<br />
+	<h:outputLabel value="#{estudanteRegistrarBean.estudante.nome}" />
+	<br />
+	<h:outputLabel value="#{estudanteRegistrarBean.estudante.sobrenome}" />
+	<br />
+	<h:outputLabel
+		value="#{estudanteRegistrarBean.estudante.nota1 eq estudanteRegistrarBean.estudante.nota2}" />
+	<br />
+	<h:outputLabel
+		value="#{estudanteRegistrarBean.estudante.nota1 == estudanteRegistrarBean.estudante.nota2}" />
+	<br />
+	<h:outputLabel
+		value="#{estudanteRegistrarBean.estudante.turno eq Turno.VESPERTINO}" />
+
+	<h:outputLabel
+		value="#{ estudanteRegistrarBean.nomesArray[0] } 
+		#{ estudanteRegistrarBean.nomesArray[1] } #{ estudanteRegistrarBean.nomesArray[2]}" />
+	<br />
+
+	<ui:repeat var="nome"
+		value="#{estudanteRegistrarBean.nomesSet.toArray()}">
+		<h:outputLabel value="#{nome}" />
+	</ui:repeat>
+	<br />
+	<h:outputLabel value="__________MAP____________" />
+	<br />
+	<h:outputLabel value="#{estudanteRegistrarBean.nomesMap.get('Goku')}" />
+	<br />
+	<h:outputLabel value="#{estudanteRegistrarBean.nomesMap.get('Goku')}" />
+	<br />
+	<h:form>
+		<h:commandButton value="Soltar magia"
+			onclick="fazMagica('#{'Hadouken'}')" />
+		<h:commandButton value="alert nome"
+			onclick="alertNome(#{estuestudanteRegistrarBean.estudante.nome})" />
+	</h:form>
+
+	<!-- imprimindo com css -->
+	<ui:repeat var="nome" varStatus="status"
+		value="#{estudanteRegistrarBean.nomesSet.toArray()}">
+
+		<h:outputLabel value="#{nome}"
+			style="color: #{status.index mod 2 == 0 ? 'red' : 'green'}" />
+	</ui:repeat>
+	<br />
+
+	<h:form>
+		<h:commandButton action="#{estudanteRegistrarBean.exibirNotas()}"
+			value="Exibir notas">
+			<f:ajax render="notasGrid" listener="#{estudanteRegistrarBean.exibirNotas()}" />
+		</h:commandButton>
+		<br />
+		<h:panelGrid id="notasGrid">
+			<h:outputText value="#{estudanteRegistrarBean.estudante.nome}" />
+			<h:outputText value="#{estudanteRegistrarBean.estudante.sobrenome}" />
+			<h:outputText value="#{estudanteRegistrarBean.estudante.turno}" />
+			<h:outputText value="#{estudanteRegistrarBean.estudante.nota1}"
+				rendered="#{estudanteRegistrarBean.mostrarNotas}" />
+			<h:outputText value="#{estudanteRegistrarBean.estudante.nota2}"
+				rendered="#{estudanteRegistrarBean.mostrarNotas}" />
+			<h:outputText value="#{estudanteRegistrarBean.estudante.nota3}"
+				rendered="#{estudanteRegistrarBean.mostrarNotas}" />
+		</h:panelGrid>
+	</h:form>
+
+	<script type="text/javascript">
+	function fazMagica(magica){
+		alert(magica);
+		}
+	function alertNome(nome){
+		alert(nome)
+		}
+</script>
+</h:body>
+
+</html>
