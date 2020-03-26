@@ -6,10 +6,21 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head></h:head>
+<f:view locale="#{loginBean.language}">
+	<h:outputText value="#{loginBean.language}" />
 <h:body>
 	<h:form>
-		<h1>Usuario logado: #{loginBean.estudante.nome}</h1>
+		<h1>#{msg.userLogged} #{loginBean.estudante.nome}</h1>
+		<h:outputFormat value="#{msg.userLogged}" >
+		<f:param value="#{loginBean.estudante.nome}"/>
+		<f:param value="#{loginBean.estudante.sobrenome}"/>
+		</h:outputFormat>
+		<br/>
+		<h:outputFormat value="#{msg.alert}" >
+			<f:param value="#{loginBean.qtdMensagens}" />
+		</h:outputFormat>
 		<p:commandButton value="Logout" action="#{loginBean.logout()}"/>
 	</h:form>
 </h:body>
+</f:view>
 </html>

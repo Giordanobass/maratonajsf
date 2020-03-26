@@ -1,6 +1,7 @@
 package br.com.devedojo.maratonajsf.bean.comunicacao;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
@@ -14,6 +15,8 @@ public class ComunicacaoTeste1Bean implements Serializable {
 	
 	private String nome;
 	private String sobrenome;
+	private Date data = new Date();
+	
 	
 	public void imprimirAtributos() {
 		String initParameter = FacesContext.getCurrentInstance().getExternalContext().getInitParameter("images.location");
@@ -35,6 +38,12 @@ public class ComunicacaoTeste1Bean implements Serializable {
 	}
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
+	}
+	public Date getData() {
+		return data;
+	}
+	public void setData(Date data) {
+		this.data = data;
 	}
 	
 }

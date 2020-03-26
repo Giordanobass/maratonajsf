@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Maratona JSF - DevDojo</title>
+</h:head>
+
+<h:body>
+<p:messages autoUpdate="true"/>
+	
+	<h:form>
+	<h:panelGrid columns="1">
+		<h:outputText value="Password" />
+		<h:inputText id="confirm" value="#{validationTesteBean.password}"
+			required="true" requiredMessage="Type a password"/>
+			
+		<h:outputText value="Confirm your Password" />
+		<h:inputText id="password" value="#{validationTesteBean.password}"
+			required="true" requiredMessage="Confirm your password"/>
+			
+		
+		<o:validateEqual components="password confirm" message="Password are not equal" />
+		<h:commandButton actionListener="#{validationTesteBean.save}"  value="Salvar" />
+	</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

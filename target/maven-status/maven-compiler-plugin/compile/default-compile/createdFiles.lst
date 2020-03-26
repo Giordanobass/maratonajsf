@@ -2,12 +2,17 @@ br\com\devedojo\maratonajsf\bean\filter\LoginFilter.class
 br\com\devedojo\maratonajsf\bean\dependent\TesteDependentBean.class
 br\com\devedojo\maratonajsf\bean\conversation\TesteConversationBean.class
 br\com\devedojo\maratonajsf\bean\login\LoginBean.class
+br\com\devedojo\maratonajsf\bean\comunicacao\ComunicacaoTeste3Bean.class
 br\com\devedojo\maratonajsf\model\enums\Turno.class
+br\com\devedojo\maratonajsf\bean\comunicacao\ComunicacaoTeste2Bean.class
 br\com\devedojo\maratonajsf\bean\application\TesteApplicationBean.class
+br\com\devedojo\maratonajsf\bean\comunicacao\ComunicacaoTeste4Bean.class
 br\com\devedojo\maratonajsf\bean\estudante\EstudanteRegistrarBean.class
 br\com\devedojo\maratonajsf\bean\request\TesteRequestBean.class
 br\com\devedojo\maratonajsf\bean\view\TesteViewBean.class
 br\com\devedojo\maratonajsf\bean\flow\TesteFlowBean.class
+br\com\devedojo\maratonajsf\bean\comunicacao\ComunicacaoTeste1Bean.class
 br\com\devedojo\maratonajsf\bean\flow\TesteFlowNestedBean.class
 br\com\devedojo\maratonajsf\bean\session\TesteSessionBean.class
 br\com\devedojo\maratonajsf\model\Estudante.class
+br\com\devedojo\maratonajsf\bean\comunicacao\ComunicacaoResultadoTesteBean.class
